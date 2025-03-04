@@ -235,7 +235,14 @@ export default function CameraPreview({ onTranscription }: CameraPreviewProps) {
         </div>
       )}
 
-      {isStreaming && (
+      {/* Show WebSocket state */}
+
+      <>
+        <div className=" bg-white p-2 rounded shadow mb-5">
+          <p className="text-sm font-medium">
+            WebSocket Status: {connectionStatus}
+          </p>
+        </div>
         <div className="w-full max-w-[350px] h-2 rounded-full bg-green-100 mb-4">
           <div
             className="h-full rounded-full transition-all bg-green-500"
@@ -245,7 +252,7 @@ export default function CameraPreview({ onTranscription }: CameraPreviewProps) {
             }}
           />
         </div>
-      )}
+      </>
 
       <Button
         onClick={toggleAudioStream} // Changed function name
